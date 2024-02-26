@@ -6,14 +6,24 @@
 - Car Monitoring device that acts as a portable monitoring system for car health, car performance, route analysis.
 
 ### Tools: 
-- Grafana, Raspberry Pi, SenseHat, Pi Camera, GPS module, wires, black box case, USB storage device etc.
+- Grafana, MongoDB, Raspberry Pi, SenseHat, Pi Camera, GPS module, wires, USB storage device etc.
 
 ### Programming:
-- Python, JavaScript, JSON, HTML, 
+- Python, MongoDB, JSON, Crontab (CLI)
 
 ### Possible IoT Tools:
 - MQTT (TLS Encryption)
+- ThinkSpeak
 
-### Two ways of looking at it: 
-1. MQTT + Grafana for internet side
-2. Save data to a JSON file and create a Web App / JavaFX app that allows you to view the JSON visually
+# Important Features
+1. Acceleration
+2. Braking feedback
+4. Avg Speed
+5. GPS Location
+6. Distance
+7. Time (HH:MM)
+
+# Optional Features
+1. Route display for a specific journey
+2. Object-detection using pi camera
+3. Screenshot of where your speed was too high/slammed on brakes
