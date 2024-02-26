@@ -22,6 +22,7 @@
 5. GPS Location
 6. Distance
 7. Time (HH:MM)
+8. Temperature
 
 # Optional Features
 1. Route display for a specific journey
