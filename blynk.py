@@ -14,6 +14,7 @@ humidity = sense.get_humidity()
 direction = get_direction()
 
 def get_direction():
+    # Source: https://projects.raspberrypi.org/en/projects/compass-maze/2
     val = sense.get_compass()
     
     if (val < 45 or val > 315):
