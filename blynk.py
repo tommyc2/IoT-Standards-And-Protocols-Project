@@ -7,12 +7,6 @@ from sense_hat import SenseHat
 
 sense = SenseHat()
 
-temp = sense.get_temperature()
-pressure = sense.get_pressure()
-location = gm.get_location(52.244483, -7.144931)
-humidity = sense.get_humidity()
-direction = get_direction()
-
 def get_direction():
     # Source: https://projects.raspberrypi.org/en/projects/compass-maze/2
     val = sense.get_compass()
@@ -32,6 +26,13 @@ def get_direction():
     else:
         sense.show_letter('W')
         return "West"
+
+temp = sense.get_temperature()
+pressure = sense.get_pressure()
+location = gm.get_location(52.244483, -7.144931)
+humidity = sense.get_humidity()
+direction = get_direction()
+
 
 BLYNK_AUTH = 'key'
 
