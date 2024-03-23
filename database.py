@@ -1,7 +1,7 @@
 import datetime
 from pymongo.mongo_client import MongoClient
 
-password = "dungarvan1995"
+password = "pw"
 uri = f"mongodb+srv://tcmedion:{password}@mycluster.m9wolg3.mongodb.net/?retryWrites=true&w=majority&appName=MyCluster"
 
 client = MongoClient(uri)
@@ -17,13 +17,30 @@ def find_database():
               """)
         return db
 
-data = {
+data = [
+    {
     "temp": 22.5, # Dummy values
     "lat": 0, # Dummy values
-    "long": 0 # Dummy values
-}
+    "long": 0, # Dummy values
+    "pressure": 1020
+    },
+    {
+    "temp": 24.5, # Dummy values
+    "lat": 0, # Dummy values
+    "long": 0, # Dummy values
+    "pressure": 1050
+    },
+    {
+    "temp": 23.5, # Dummy values
+    "lat": 0, # Dummy values
+    "long": 0, # Dummy values
+    "pressure": 600
+    }
+]
 
-collection.insert(data)
+#collection.insert_many(data)
+
+
 
     
 
