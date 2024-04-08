@@ -1,7 +1,7 @@
 import datetime
 from pymongo.mongo_client import MongoClient
 
-password = "dungarvan1995"
+password = "pw"
 uri = f"mongodb+srv://tcmedion:{password}@mycluster.m9wolg3.mongodb.net/?retryWrites=true&w=majority&appName=MyCluster"
 
 client = MongoClient(uri)
@@ -17,40 +17,75 @@ def find_database():
               """)
         return db
 
-data = [
-    {
-    "temp": 22.5, # Dummy values
-    "lat": 0, # Dummy values
-    "long": 0, # Dummy values
-    "pressure": 1020
-    },
-    {
-    "temp": 24.5, # Dummy values
-    "lat": 0, # Dummy values
-    "long": 0, # Dummy values
-    "pressure": 1050
-    },
-    {
-    "temp": 23.5, # Dummy values
-    "lat": 0, # Dummy values
-    "long": 0, # Dummy values
-    "pressure": 600
+
+def save_to_database(temp,pressure,direction,humidity,location):
+    data = {
+    "temp": temp, 
+    "pressure": pressure,
+    "humidity": humidity,
+    "direction": direction,
+    "location": location
     }
-]
 
-# 15 rows already inserted --> collection.insert_many(data)
+    collection.insert_one(data)
 
-average_temp = db.collection.aggregate([
-    {
+
+#################
+# Avg temperature
+##################
+
+
+def get_average_temp():
+    average_temp = collection.aggregate([
+  {
         "$group": {
             "_id": None,
             "avgTemp": {"$avg": "$temp"}
         }
     }
 ])
+    for output in average_temp:
+        return output["avgTemp"]
 
-for i in average_temp:
-    print(i["avgTemp"])
+
+
+#################
+# Avg pressure
+##################
+
+def get_avg_pressure():
+    average_pressure = collection.aggregate([
+  {
+        "$group": {
+            "_id": None,
+            "avgPressure": {"$avg": "$pressure"}
+        }
+    }
+])
+    for output in average_pressure:
+        return output["avgPressure"]
+
+
+
+
+#################
+# Avg humidity
+##################
+
+def get_avg_humidity():
+    average_hum = collection.aggregate([
+  {
+        "$group": {
+            "_id": None,
+            "avgHumidity": {"$avg": "$humidity"}
+        }
+    }
+])
+    for output in average_hum:
+        return output["avgHumidity"]
+
+
+
 
 
 

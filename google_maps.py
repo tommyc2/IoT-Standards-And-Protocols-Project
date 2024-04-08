@@ -14,4 +14,4 @@ def get_location(lat,long):
     return location
 
 
-#print(get_location(regional_road[0],regional_road[1]))
+print(get_location(regional_road[0],regional_road[1]))

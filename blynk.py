@@ -4,6 +4,7 @@ import time
 import random
 import google_maps as gm
 from sense_hat import SenseHat
+import database
 
 sense = SenseHat()
 
@@ -26,15 +27,15 @@ def get_direction():
     else:
         sense.show_letter('W')
         return "West"
+    
 
 temp = sense.get_temperature()
 pressure = sense.get_pressure()
 location = gm.get_location(52.244483, -7.144931)
 humidity = sense.get_humidity()
-direction = get_direction()
 
 
-BLYNK_AUTH = 'key'
+BLYNK_AUTH = 'auth'
 
 # initialize Blynk
 blynk = BlynkLib.Blynk(BLYNK_AUTH)
@@ -44,13 +45,18 @@ while True:
     blynk.virtual_write(0, temp)
     blynk.virtual_write(1,pressure)
     blynk.virtual_write(3,location)
-    blynk.virtual_write(4,humidity)
-    blynk.virtual_write(5,get_direction())
-    time.sleep(5)
+    blynk.virtual_write(2,humidity)
+    blynk.virtual_write(4,get_direction())
+    time.sleep(3)
     print("Temp: ", temp)
     print("Pressure: ", pressure)
     print("Location: ", location)
     print("Humidity: ", humidity)
     print("Direction (NESW): ", get_direction())
     print("@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    #try:
+    #    database.save_to_database(temp,pressure,get_direction(),humidity,location)
+    #except Exception as e:
+     #   print('Error saving to database:', str(e))
+
     
