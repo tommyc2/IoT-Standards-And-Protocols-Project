@@ -1,4 +1,4 @@
-<img src="https://github.com/tommyc2/IoT-Standards-And-Protocols-Project/assets/114081733/8ddb3fc9-803f-4571-a97c-4c618ed683b8" alt="project-logo" style=" width:400px;"/>
+<img src="https://github.com/tommyc2/IoT-Standards-And-Protocols-Project/assets/114081733/8ddb3fc9-803f-4571-a97c-4c618ed683b8" alt="project-logo" style=" width:200px;"/>
 
 # Title: Vehicle Monitoring & Route Analysis Device
 
@@ -8,25 +8,14 @@
 - Car Monitoring device that acts as a portable monitoring system for car health, car performance, route analysis.
 
 ### Tools: 
-- Grafana, MongoDB, Raspberry Pi, SenseHat, Pi Camera, GPS module, wires, USB storage device etc.
+- MongoDB Atlas, Raspberry Pi, SenseHat, GPS module/Simulated GPS
 
-### Programming:
-- Python, MongoDB, JSON, Crontab (CLI)
-
-### Possible IoT Tools:
-- MQTT (TLS Encryption)
-- ThinkSpeak
+### Programming/IoT Tools:
+- Python, MongoDB, JSON, Crontab (CLI), Shell scripting (Bash), Blynk App
 
 # Important Features
-1. Acceleration
-2. Braking feedback
-4. Avg Speed
-5. GPS Location
-6. Distance
-7. Time (HH:MM)
-8. Temperature
-
-# Optional Features
-1. Route display for a specific journey
-2. Object-detection using pi camera
-3. Screenshot of where your speed was too high/slammed on brakes
+1. Temperature (Celsius)
+2. Humidity
+3. Pressure (PA)
+4. Distance (Total/Gained since last geo position)
+5. Direction (using SenseHat compass)
