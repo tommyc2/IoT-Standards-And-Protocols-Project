@@ -1,4 +1,3 @@
-import datetime
 from pymongo.mongo_client import MongoClient
 
 password = "pw"
@@ -24,10 +23,14 @@ def save_to_database(temp,pressure,direction,humidity,location):
     "pressure": pressure,
     "humidity": humidity,
     "direction": direction,
-    "location": location
+    "location": location,
     }
 
     collection.insert_one(data)
+
+
+def save_distance(distance):
+    collection.insert_one({"distance": int(distance) })
 
 
 #################
@@ -85,11 +88,25 @@ def get_avg_humidity():
         return output["avgHumidity"]
 
 
+#################
+# Total distance
+##################
 
 
+def get_total_distance():
+    total = collection.aggregate([
+  {
+        "$group": {
+            "_id": None,
+            "totalDistance": {"$sum": "$distance"}
+        }
+    }
+])
+    for i in total:
+        return i["totalDistance"]
 
 
-
+print(get_total_distance())
 
 
     
