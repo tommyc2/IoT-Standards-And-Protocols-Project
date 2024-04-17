@@ -1,4 +1,6 @@
-# Title: Vehicle Monitoring & Route Analysis System
+<img src="https://github.com/tommyc2/IoT-Standards-And-Protocols-Project/assets/114081733/8ddb3fc9-803f-4571-a97c-4c618ed683b8" alt="project-logo" style=" width:400px;"/>
+
+# Title: Vehicle Monitoring & Route Analysis Device
 
 ### Members : Tommy Condon, Finn Bennett
 
